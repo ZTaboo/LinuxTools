@@ -119,3 +119,19 @@ func ReplaceOsSource(data string) {
 		}
 	}
 }
+
+// FindPort 查询端口占用
+func FindPort(data string) {
+	cmd := exec.Command("netstat", "-antup", "|", "grep", data)
+	con, err := cmd.Output()
+	if err != nil {
+		fmt.Println("命令不存在，正在安装...")
+		cmd1 := exec.Command("apt-get", "install", "net-tools")
+		err := cmd1.Start()
+		if err != nil {
+			fmt.Println("安装错误：", err)
+		}
+	} else {
+		fmt.Println(string(con))
+	}
+}

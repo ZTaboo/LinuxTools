@@ -17,6 +17,11 @@ func zeroFlags() []cli.Flag {
 			Aliases: []string{"rep"},
 			Usage:   "更换系统源",
 		},
+		&cli.StringFlag{
+			Name:    "port",
+			Aliases: []string{"p"},
+			Usage:   "查询端口占用",
+		},
 	}
 }
 

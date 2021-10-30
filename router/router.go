@@ -16,5 +16,7 @@ func Router(routerList []string, c *cli.Context) {
 		controller.Version(data)
 	case "replace":
 		controller.ReplaceOsSource(data)
+	case "port":
+		controller.FindPort(data)
 	}
 }
